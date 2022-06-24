@@ -18,7 +18,7 @@ public class AppOrderTest {
 
     @Test
     public void shouldBeSuccessfulForm() {
-        $x("//*[@data-test-id='name']//input").sendKeys("Иван Иваныч");
+        $x("//*[@data-test-id='name']//input").sendKeys("Иваныч-Ивановичев Иван");
         $x("//*[@data-test-id='phone']//input").sendKeys("+78005553535");
         $x("//*[@data-test-id='agreement']").click();
         $x("//button").click();
@@ -50,7 +50,7 @@ public class AppOrderTest {
 
     @Test
     public void shouldBeFailedIncorrectPhoneInput() {
-        $x("//*[@data-test-id='name']//input").sendKeys("Глеб");
+        $x("//*[@data-test-id='name']//input").sendKeys("Иваныч-Ивановичев Иван");
         $x("//*[@data-test-id='phone']//input").sendKeys("+Gleb");
         $x("//*[@data-test-id='agreement']").click();
         $x("//button").click();
@@ -61,7 +61,7 @@ public class AppOrderTest {
 
     @Test
     public void shouldBeFailedEmptyPhoneInput() {
-        $x("//*[@data-test-id='name']//input").sendKeys("Глеб");
+        $x("//*[@data-test-id='name']//input").sendKeys("Иваныч-Ивановичев Иван");
         $x("//*[@data-test-id='agreement']").click();
         $x("//button").click();
         $x("//*[@data-test-id='phone'][contains(@class, 'input_invalid')]//*[@class='input__sub']")
@@ -71,7 +71,7 @@ public class AppOrderTest {
 
     @Test
     public void shouldBeFailedUncheckedCheckbox() {
-        $x("//*[@data-test-id='name']//input").sendKeys("Глеб");
+        $x("//*[@data-test-id='name']//input").sendKeys("Иваныч-Ивановичев Иван");
         $x("//*[@data-test-id='phone']//input").sendKeys("+78005553535");
         $x("//button").click();
         $x("//*[@data-test-id='agreement'][contains(@class, 'input_invalid')]//*")
